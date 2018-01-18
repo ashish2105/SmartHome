@@ -1,0 +1,11 @@
+organization smarthome
+stakeholder as [
+full name "Ashish Kumar Sandil"
+title "Student"
+email "asandil@g.clemson.edu"
+]
+stakeholder vr [
+full name "Vivek Arakali Nagaraja Rao"
+title "Student"
+email "varakal@g.clemson.edu"
+]

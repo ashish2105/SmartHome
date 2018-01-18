@@ -1,0 +1,85 @@
+system requirements sysreq
+for smarthome ::smarthome.impl  
+[
+	val command_received = 6 hr
+	val request_authentication= 6.01 hr
+	val Check_authorization = 6.03 hr
+	val authority_notification_delay= 2 ms
+	val no_of_failures= 0
+	
+		
+	
+	requirement R1
+	[
+		description this "Malicious activity should be detected"
+		rationale "Sensors pick up on any malicious activity and sends an alert to the home owner"
+		see goal SecGoals.g4
+	]
+	
+	requirement R2
+	[
+		description this "Access Point Monitor or Motion Detector gets triggered upon detection of an intruder in the house"
+		rationale " An intruder in the house is a person who enter the house who does not enter the security PIN. 
+                    This person could be a theft/burglar"
+		see goal SecGoals.g2
+	]
+	
+	requirement R3
+	[
+		description this "Machine triggers the local alarm"
+		see goal SecGoals.g4
+	]
+	
+	
+	requirement R4
+	[
+		description this "Machine triggers the mobile alarm"
+		see goal SecGoals.g4
+	]
+	
+	requirement R5
+	[
+		description this "Machine triggers the remote alarm"
+		see goal SecGoals.g4
+	]
+	
+	
+	requirement R6
+	[
+	description this "Home owner is notified of the smoke detection or Intruder detection via the local/mobile alarm"
+	see goal SecGoals.g4	
+	] 
+
+   requirement R7
+	[
+	description this "Respective Authority or department is notified of the smoke/intrusion detection via the remote alarm trigger or home owner notification"
+	see goal SecGoals.g4
+	] 
+
+	requirement responsiveness_R8
+	[
+	description this "The maximum latency allowed for the entire system(all end-to-end flows) is 4ms"
+	rationale "Responsiveness of the system should be high since detection of smoke or alarm are highly critical/risky situations which
+               could cost lives"
+	compute latency
+	predicate latency <= 4 ms
+		see goal SecGoals.g5
+	]
+	requirement robust_R10
+	[
+		description this "The  system should have a well-defined error model"
+		rationale "Since the system is used for security, it should be highly reliable and error-free and fault-tolerant"
+		see goal SecGoals.g2
+	]
+	
+	requirement Systemwide_R1
+	[
+		description this "every thread shall be periodic"
+		rationale "In a set of products reuse of architecture elements can lead to violations of design constraints"
+		mitigates "the risk of thread contention for the processor"
+		uncertainty[
+			volatility 2
+			impact 4
+		]
+	]
+	]
